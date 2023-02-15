@@ -169,12 +169,31 @@ createApp({
         },
       ],
       activeContact: 0,
+      newMessage: { message: "", status: "sent" },
     };
   },
 
   methods: {
     findChat(index) {
       this.activeContact = index;
+    },
+
+    addMessage(index) {
+      const newMessageCopy = {
+        ...this.newMessage,
+      };
+      this.contacts[index].messages.push(newMessageCopy);
+      this.newMessage.message = "";
+      this.answerForUser(index);
+    },
+    answerForUser(index) {
+      setTimeout(() => {
+        const answer = {
+          message: "Ok!",
+          status: "received",
+        };
+        this.contacts[index].messages.push(answer);
+      }, 1000);
     },
   },
 }).mount("#root");

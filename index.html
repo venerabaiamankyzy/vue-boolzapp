@@ -165,11 +165,17 @@
             class="header footer-right d-flex justify-content-between align-items-center gap-4 px-3"
           >
             <div class="">
-              <i class="i fa-regular fa-face-smile"></i>
+              <i
+                @click="addMessage(activeContact)"
+                class="i fa-regular fa-face-smile"
+              ></i>
             </div>
             <div class="input-group my-1">
               <input
+                v-model="newMessage.message"
+                @keyUp.enter="addMessage(activeContact)"
                 type="text"
+                v-model="newMessage.message"
                 placeholder="Scrivi un messagio "
                 class="form-control"
                 aria-label="Sizing example input"
