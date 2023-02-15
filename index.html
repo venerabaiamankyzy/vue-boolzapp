@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- META TAGS -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- TITLE -->
+    <title>Vue To-Do List</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- BOOTSTRAP -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Vue JS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- MAIN JS -->
+    <script type="text/javascript" src="./js/main.js" defer></script>
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container p-0 d-flex">
+        <!-- start left container -->
+        <div class="containerLeft d-flex flex-column">
+          <!-- header -->
+          <div class="header d-flex justify-content-between gap-5 p-2">
+            <!-- header image -->
+            <div class="userImg d-flex align-items-center">
+              <img src="./img/avatar_io.jpg" alt="avatar" />
+              <span class="userName">Venera</span>
+            </div>
+            <div class="space"></div>
+
+            <!-- header icons -->
+            <div
+              class="icons d-flex align-items-center justify-content-center gap-3 opacity-50"
+            >
+              <i class="i fa-solid fa-circle-notch"></i>
+              <i class="i fa-solid fa-message"></i>
+              <i class="i fa-solid fa-ellipsis-vertical"></i>
+            </div>
+          </div>
+          <!-- notifications -->
+          <div
+            class="notification d-flex align-items-center justify-content-start gap-3"
+          >
+            <!-- notification icon -->
+            <div
+              class="notifIcon d-flex align-items-center justify-content-center"
+            >
+              <i class="i fa-solid fa-bell-slash"></i>
+            </div>
+            <!-- notification text -->
+            <div class="notifText">
+              <h6 class="m-0">Ricevi notifiche di nuovi messaggi</h6>
+              <a href="#" class="text-muted">Attiva notifiche desktop</a>
+            </div>
+          </div>
+          <!-- search -->
+          <div class="search d-flex align-items-center justify-content-start">
+            <div class="input-group my-1">
+              <span class="input-group-text bg-white" id="inputGroup-sizing-sm "
+                ><i class="fa-solid fa-magnifying-glass opacity-50"></i
+              ></span>
+              <input
+                type="text"
+                placeholder="Cerca o inizia una nuova chat"
+                class="form-control"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+          </div>
+
+          <!-- user profiles -->
+          <div class="mainUsers">
+            <ul>
+              <!-- first user -->
+              <li class="userBox mx-3">
+                <div
+                  class="userData d-flex align-items-center justify-content-between my-2"
+                >
+                  <div class="userName d-flex align-items-center gap-2">
+                    <img
+                      src="./img/avatar_1.jpg"
+                      class="mainUsersImg"
+                      alt="avatar-1"
+                    />
+
+                    <span class="d-flex flex-column">
+                      <h5 class="m-0 fw-semibold">{{contacts.name}}Michele</h5>
+                      <h6 class="lastMessage">Tutto fatto!</h6>
+                    </span>
+                  </div>
+
+                  <div class="hour">
+                    <h6 class="lastMessage">16:15</h6>
+                  </div>
+                </div>
+              </li>
+              <!-- second user -->
+              <li class="userBox mx-3">
+                <div
+                  class="userData d-flex align-items-center justify-content-between my-2"
+                >
+                  <div class="userName d-flex align-items-center gap-2">
+                    <img
+                      src="./img/avatar_2.jpg"
+                      class="mainUsersImg"
+                      alt="avatar-2"
+                    />
+
+                    <span class="d-flex flex-column">
+                      <h5 class="m-0 fw-semibold">Fabio</h5>
+                      <h6 class="lastMessage">
+                        Mi piacerebbe ma devo andare a fare la spesa.
+                      </h6>
+                    </span>
+                  </div>
+
+                  <div class="hour">
+                    <h6 class="lastMessage">16:35</h6>
+                  </div>
+                </div>
+              </li>
+              <!-- third user -->
+              <li class="userBox mx-3">
+                <div
+                  class="userData d-flex align-items-center justify-content-between my-2"
+                >
+                  <div class="userName d-flex align-items-center gap-2">
+                    <img
+                      src="./img/avatar_3.jpg"
+                      class="mainUsersImg"
+                      alt="avatar-3"
+                    />
+
+                    <span class="d-flex flex-column">
+                      <h5 class="m-0 fw-semibold">Samuele</h5>
+                      <h6 class="lastMessage">Ah scusa!</h6>
+                    </span>
+                  </div>
+
+                  <div class="hour">
+                    <h6 class="lastMessage">16:15</h6>
+                  </div>
+                </div>
+              </li>
+              <!-- fourth user -->
+              <li class="userBox mx-3">
+                <div
+                  class="userData d-flex align-items-center justify-content-between my-2"
+                >
+                  <div class="userName d-flex align-items-center gap-2">
+                    <img
+                      src="./img/avatar_4.jpg"
+                      class="mainUsersImg"
+                      alt="avatar-4"
+                    />
+
+                    <span class="d-flex flex-column">
+                      <h5 class="m-0 fw-semibold">Alessandro B.</h5>
+                      <h6 class="lastMessage">
+                        Si, ma preferirei andare al cinema
+                      </h6>
+                    </span>
+                  </div>
+
+                  <div class="hour">
+                    <h6 class="lastMessage">15:50</h6>
+                  </div>
+                </div>
+              </li>
+              <!-- fifth user -->
+              <li class="userBox mx-3">
+                <div
+                  class="userData d-flex align-items-center justify-content-between my-2"
+                >
+                  <div class="userName d-flex align-items-center gap-2">
+                    <img
+                      src="./img/avatar_5.jpg"
+                      class="mainUsersImg"
+                      alt="avatar-5"
+                    />
+
+                    <span class="d-flex flex-column">
+                      <h5 class="m-0 fw-semibold">Alessandro L.</h5>
+                      <h6 class="lastMessage">Va bene, stasera la sento</h6>
+                    </span>
+                  </div>
+
+                  <div class="hour">
+                    <h6 class="lastMessage">15:50</h6>
+                  </div>
+                </div>
+              </li>
+              <!-- sixth user -->
+              <li class="userBox mx-3">
+                <div
+                  class="userData d-flex align-items-center justify-content-between my-2"
+                >
+                  <div class="userName d-flex align-items-center gap-2">
+                    <img
+                      src="./img/avatar_6.jpg"
+                      class="mainUsersImg"
+                      alt="avatar-6"
+                    />
+
+                    <span class="d-flex flex-column">
+                      <h5 class="m-0 fw-semibold">Claudia</h5>
+                      <h6 class="lastMessage">Nessuna nuova, buona nuova</h6>
+                    </span>
+                  </div>
+
+                  <div class="hour">
+                    <h6 class="lastMessage">15:51</h6>
+                  </div>
+                </div>
+              </li>
+              <!-- seventh user -->
+              <li class="userBox mx-3">
+                <div
+                  class="userData d-flex align-items-center justify-content-between my-2"
+                >
+                  <div class="userName d-flex align-items-center gap-2">
+                    <img
+                      src="./img/avatar_7.jpg"
+                      class="mainUsersImg"
+                      alt="avatar-7"
+                    />
+
+                    <span class="d-flex flex-column">
+                      <h5 class="m-0 fw-semibold">Federico</h5>
+                      <h6 class="lastMessage">
+                        Grazie per avermelo ricordato, le scrivo subito!
+                      </h6>
+                    </span>
+                  </div>
+
+                  <div class="hour">
+                    <h6 class="lastMessage">15:50</h6>
+                  </div>
+                </div>
+              </li>
+              <!-- eighth user -->
+              <li class="userBox mx-3">
+                <div
+                  class="userData d-flex align-items-center justify-content-between my-2"
+                >
+                  <div class="userName d-flex align-items-center gap-2">
+                    <img
+                      src="./img/avatar_8.jpg"
+                      class="mainUsersImg"
+                      alt="avatar-8"
+                    />
+
+                    <span class="d-flex flex-column">
+                      <h5 class="m-0 fw-semibold">Davide</h5>
+                      <h6 class="lastMessage">OK!</h6>
+                    </span>
+                  </div>
+
+                  <div class="hour">
+                    <h6 class="lastMessage">15:51</h6>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- start right container  -->
+        <div class="containerRight d-flex flex-column justify-content-between">
+          <div
+            class="header headerRight d-flex align-items-center justify-content-between gap-5 p-2"
+          >
+            <div class="firstUser d-flex">
+              <img
+                src="./img/avatar_1.jpg"
+                class="mainUsersImg"
+                alt="avatar-1"
+              />
+              <div class="firstUserDesc">
+                <h5>Ivan</h5>
+                <h6 class="lastMessage m-0">Ultimo accesso oggi alle 12.00</h6>
+              </div>
+            </div>
+            <div
+              class="icons d-flex align-items-center justify-content-center gap-3 opacity-50"
+            >
+              <i class="i fa-solid fa-magnifying-glass"></i>
+              <i class="i fa-solid fa-paperclip"></i>
+              <i class="i fa-solid fa-ellipsis-vertical"></i>
+            </div>
+          </div>
+          <!-- right container main content -->
+          <div class="rightContainerMain">
+            <div class="allMessages d-flex flex-column p-5">
+              <div class="message sent">
+                <p class="mb-0">Hai portato a spasso il cane</p>
+                <p class="orario">15:30</p>
+              </div>
+              <div class="message sent">
+                <p class="mb-0">Ricordati di stendere i panni</p>
+                <p class="orario">16:30</p>
+              </div>
+              <div class="message received">
+                <p class="mb-0">Tutto fatto!</p>
+                <p class="orario">10:10</p>
+              </div>
+            </div>
+          </div>
+          <!-- right container footer -->
+          <div
+            class="header footer-right d-flex justify-content-between align-items-center gap-4 px-3"
+          >
+            <div class="">
+              <i class="i fa-regular fa-face-smile"></i>
+            </div>
+            <div class="input-group my-1">
+              <input
+                type="text"
+                placeholder="Scrivi un messagio "
+                class="form-control"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+            <div class="">
+              <i class="i fa-solid fa-microphone"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
