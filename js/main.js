@@ -168,6 +168,13 @@ createApp({
           ],
         },
       ],
+      activeContact: 0,
     };
+  },
+
+  methods: {
+    findChat(index) {
+      this.activeContact = index;
+    },
   },
 }).mount("#root");
